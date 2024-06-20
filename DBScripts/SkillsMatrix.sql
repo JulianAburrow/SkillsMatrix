@@ -1,18 +1,18 @@
 USE master
 GO
 
-IF EXISTS (SELECT * FROM sys.databases WHERE NAME = 'STMGroupSkillsMatrix')
-	ALTER DATABASE [STMGroupSkillsMatrix] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
+IF EXISTS (SELECT * FROM sys.databases WHERE NAME = 'SkillsMatrix')
+	ALTER DATABASE [SkillsMatrix] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
 GO
-IF EXISTS (SELECT * FROM sys.databases WHERE NAME = 'STMGroupSkillsMatrix')
-	DROP DATABASE STMGroupSkillsMatrix
+IF EXISTS (SELECT * FROM sys.databases WHERE NAME = 'SkillsMatrix')
+	DROP DATABASE SkillsMatrix
 
 GO
 
-CREATE DATABASE STMGroupSkillsMatrix
+CREATE DATABASE SkillsMatrix
 GO
 
-USE STMGroupSkillsMatrix
+USE SkillsMatrix
 GO
 
 CREATE TABLE UserStatus (

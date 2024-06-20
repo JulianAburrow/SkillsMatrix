@@ -7,9 +7,9 @@ namespace DataAccess.DataAccess
 {
     public class UserSkillData : IUserSkillData
     {
-        private readonly STMGroupSkillsMatrixContext _context;
+        private readonly SkillsMatrixContext _context;
 
-        public UserSkillData(STMGroupSkillsMatrixContext context)
+        public UserSkillData(SkillsMatrixContext context)
             => _context = context;
 
         public async void AddUserSkills(List<UserSkillModel> userSkills)

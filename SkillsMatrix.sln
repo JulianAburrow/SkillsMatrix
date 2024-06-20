@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dbscripts", "dbscripts", "{172D6AE4-5CDF-4F01-954A-E6C9C5E13F49}"
 	ProjectSection(SolutionItems) = preProject
-		DBScripts\STMGroupSkillsMatrix.sql = DBScripts\STMGroupSkillsMatrix.sql
+		DBScripts\SkillsMatrix.sql = DBScripts\SkillsMatrix.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D8D9E9CA-CF0F-4356-9BFF-8E139EACDF6A}"

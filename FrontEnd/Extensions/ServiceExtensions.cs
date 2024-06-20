@@ -8,8 +8,8 @@ public static class ServiceExtensions
 {
     public static void ConfigureSqlConnections(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("STMGroupSkillsMatrix");
-        services.AddDbContext<STMGroupSkillsMatrixContext>(
+        var connectionString = configuration.GetConnectionString("SkillsMatrix");
+        services.AddDbContext<SkillsMatrixContext>(
             options =>
                 options.UseSqlServer(connectionString));
     }

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess
 {
-    public class STMGroupSkillsMatrixContext : DbContext
+    public class SkillsMatrixContext : DbContext
     {
-        public STMGroupSkillsMatrixContext(DbContextOptions<STMGroupSkillsMatrixContext> options)
+        public SkillsMatrixContext(DbContextOptions<SkillsMatrixContext> options)
             : base(options)
         { }
 

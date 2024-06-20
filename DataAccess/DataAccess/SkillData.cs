@@ -9,9 +9,9 @@ namespace DataAccess.DataAccess
 {
     public class SkillData : ISkillData
     {
-        private readonly STMGroupSkillsMatrixContext _context;
+        private readonly SkillsMatrixContext _context;
 
-        public SkillData(STMGroupSkillsMatrixContext context)
+        public SkillData(SkillsMatrixContext context)
             => _context = context;
 
         public async Task<SkillModel> GetSkill(int skillId)
