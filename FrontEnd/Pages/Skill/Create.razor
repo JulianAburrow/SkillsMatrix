@@ -1,0 +1,23 @@
+﻿@page "/skill/create"
+@inherits SkillBasePageClass
+
+<h3>Create Skill</h3>
+
+<EditForm Model="@SkillDisplayModel" OnValidSubmit="@CreateSkill">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <MudGrid>
+        <MudItem sm="7">
+            <MudCard>
+                <SkillCreateUpdateComponent SkillDisplayModel="SkillDisplayModel" />
+            </MudCard>
+            <MudCardActions>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                &nbsp;
+                <a href="/skills/index" class="btn btn-primary">Back To List</a>
+            </MudCardActions>
+        </MudItem>
+    </MudGrid>  
+
+</EditForm>

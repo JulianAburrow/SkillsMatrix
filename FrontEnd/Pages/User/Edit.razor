@@ -1,0 +1,37 @@
+﻿@page "/user/edit/{UserId:int}"
+
+@inherits UserBasePageClass
+
+@if (UserStatuses == null)
+{
+    return;
+}
+
+<h3>Edit User</h3>
+
+<EditForm Model="@UserDisplayModel" OnValidSubmit="@UpdateUser">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <MudGrid>
+        <MudItem sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="First Name" @bind-Value="UserDisplayModel.FirstName" AutoFocus OnlyValidateIfDirty="true" />
+                    <MudTextField Label="Last Name" @bind-Value="UserDisplayModel.LastName" />
+                    <MudSelect T="int" Label="Status" @bind-Value="UserDisplayModel.StatusId">
+                        @foreach (var userStatus in UserStatuses)
+                        {
+                            <MudSelectItem Value="userStatus.StatusId">@userStatus.StatusName</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudCardContent>
+                <MudCardActions>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    &nbsp;
+                    <a class="btn btn-primary" href="users/index">Back To List</a>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>

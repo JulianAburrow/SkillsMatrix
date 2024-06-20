@@ -1,0 +1,22 @@
+﻿@page "/user/view/{UserId:int}"
+@inherits UserBasePageClass
+
+@if (UserModel == null || UserModel.UserStatus == null)
+{
+    return;
+}
+
+<h3>View User</h3>
+
+<MudGrid>
+    <MudItem sm="7">
+        <MudCard>
+            <UserDisplayComponent UserModel="UserModel" />
+            <MudCardActions>
+                <a href="/user/edit/@UserModel.UserId" class="btn btn-primary">Edit</a>
+                &nbsp;
+                <a href="/users/index" class="btn btn-primary">Back To List</a>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>

@@ -1,0 +1,36 @@
+﻿@page "/skills/index"
+@inherits SkillBasePageClass
+
+@if (Skills == null)
+{
+    return;
+}
+
+<h3>Skills</h3>
+
+<a href="/skill/create" class="btn btn-primary">Create new Skill</a>
+
+<br />
+
+<br />
+
+<MudTable Items="Skills" FixedHeader="true" Height="500" Hover>
+    <HeaderContent>
+        <MudTh title="Sort by Skill">
+            <MudTableSortLabel SortBy="new Func<SkillModel, object>(x => x.SkillName)">
+                Skill
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.SkillName</MudTd>
+        <MudTd>
+            <a href="/skill/view/@context.SkillId" class="btn btn-primary">View</a>
+            <a href="/skill/edit/@context.SkillId" class="btn btn-primary">Edit</a>
+        </MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="new int[] { 10, 25, 50, 100, int.MaxValue }" />
+    </PagerContent>
+</MudTable>

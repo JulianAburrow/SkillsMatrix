@@ -1,0 +1,14 @@
+﻿global using DataAccess.DataAccess;
+global using DataAccess.Interfaces;
+global using DataAccess.Models;
+global using FrontEnd.CommonValues;
+global using FrontEnd.DisplayModels;
+global using FrontEnd.Extensions;
+global using FrontEnd.Shared.BasePageClasses;
+global using Microsoft.AspNetCore.Components;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Threading.Tasks;

@@ -1,0 +1,49 @@
+﻿@page "/users/index"
+@inherits UserBasePageClass
+
+@if (Users == null)
+{
+    return;
+}
+
+<h3>Users</h3>
+
+<a href="/user/create" class="btn btn-primary">Create new User</a>
+
+<br />
+
+<br />
+
+<MudTable Items="Users" FixedHeader="true" Height="500" Hover>
+    <HeaderContent>
+        <MudTh title="Sort by First Name">
+            <MudTableSortLabel SortBy="new Func<UserModel, object>(x => x.FirstName)">
+                First Name
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh title="Sort by Last Name">
+            <MudTableSortLabel SortBy="new Func<UserModel, object>(x => x.LastName)">
+                Last Name
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh title="Sort by First Name">
+            <MudTableSortLabel SortBy="new Func<UserModel, object>(x => x.UserStatus.StatusName)">
+                Status
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.FirstName</MudTd>
+        <MudTd>@context.LastName</MudTd>
+        <MudTd>@context.UserStatus.StatusName</MudTd>
+        <MudTd>
+            <a href="/user/view/@context.UserId" class="btn btn-primary">View</a>
+            <a href="/user/edit/@context.UserId" class="btn btn-primary">Edit</a>
+            <a href="/user/delete/@context.UserId" class="btn btn-danger">Delete</a>
+        </MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="new int[] { 10, 25, 50, 100, int.MaxValue }" />
+    </PagerContent>
+</MudTable>

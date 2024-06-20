@@ -1,0 +1,25 @@
+﻿@page "/user/delete/{UserId:int}"
+@inherits UserBasePageClass
+
+@if (UserModel == null || UserModel.UserStatus == null)
+{
+    return;
+}
+
+<h3 class="DeleteHeader">Delete User</h3>
+
+<h4>Are you sure you want to delete user @UserModel.FirstName @UserModel.LastName?</h4>
+<MudGrid>
+    <MudItem sm="7">
+        <MudCard>
+            <UserDisplayComponent UserModel="UserModel" />
+            <MudCardActions>
+                <button @onclick="DeleteUser" class="btn btn-danger">Delete</button>
+                &nbsp;
+                <a href="/users/index" class="btn btn-primary">Back To List</a>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+

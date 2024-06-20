@@ -1,0 +1,22 @@
+﻿@page "/skill/view/{SkillId:int}"
+@inherits SkillBasePageClass
+
+@if (SkillModel == null)
+{
+    return;
+}
+
+<h3>View Skill</h3>
+
+<MudGrid>
+    <MudItem sm="7">
+        <MudCard>
+            <SkillDisplayComponent SkillModel="SkillModel" />
+        </MudCard>
+        <MudCardActions>
+            <a href="/skill/edit/@SkillModel.SkillId" class="btn btn-primary">Edit</a>
+            &nbsp;
+            <a href="/skills/index" class="btn btn-primary">Back To List</a>
+        </MudCardActions>
+    </MudItem>
+</MudGrid>

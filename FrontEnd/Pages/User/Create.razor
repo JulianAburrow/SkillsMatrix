@@ -1,0 +1,47 @@
+﻿@page "/user/create"
+@inherits UserBasePageClass
+
+@if(UserStatuses == null || Skills == null)
+{
+    return;
+}   
+
+<h3>Create User</h3>
+
+<EditForm Model="@UserDisplayModel" OnValidSubmit="@CreateUser">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <MudGrid>
+        <MudItem sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="First Name" @bind-Value="UserDisplayModel.FirstName" AutoFocus OnlyValidateIfDirty="true" />
+                    <MudTextField Label="Last Name" @bind-Value="UserDisplayModel.LastName" />
+                    <MudSelect T="int" Label="Status" @bind-Value="UserDisplayModel.StatusId">
+                        @foreach (var userStatus in UserStatuses)
+                        {
+                            <MudSelectItem T="int" Value="@userStatus.StatusId">@userStatus.StatusName</MudSelectItem>
+                        }
+                    </MudSelect>
+                    @for (var i = 0; i < Skills.Count; i++)
+                    {
+                        <MudSelect T="int" Label="@Skills[i].SkillName" @bind-Value="UserDisplayModel.UserSkill[i].UserSkillScore">
+                            @for (var j = 0; j <= 10; j++)
+                            {
+                                var localVariable = j;
+                                <MudSelectItem T="int" Value="@localVariable">@localVariable</MudSelectItem>
+                            }
+                        </MudSelect>
+                    }
+                </MudCardContent>
+                <MudCardActions>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    &nbsp;
+                    <a href="/users/index" class="btn btn-primary">Back To List</a>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+
+</EditForm>
